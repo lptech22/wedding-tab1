@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Undangan Pernikahan Digital</title>
+
+<!-- Google Fonts: Cinzel + Raleway -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Raleway', sans-serif;
+    background: linear-gradient(135deg, #f8f6f2 0%, #e8ede2 50%, #d9e4d0 100%);
+    color: #2a2a2a;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    text-align: center;
+    padding-bottom: 90px;
+  }
+
+  /* POWERED BY di BAWAH SETIAP KONTEN */
+  .powered-footer {
+    margin-top: 2rem;
+    padding: 1rem 0;
+    font-size: 0.75rem;
+    color: rgba(46, 91, 46, 0.4);
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    font-family: 'Cinzel', serif;
+    border-top: 1px solid rgba(46, 91, 46, 0.1);
+  }
+  
+  .powered-footer a {
+    color: rgba(46, 91, 46, 0.6);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .powered-footer a:hover {
+    color: #2E5B2E;
+  }
+
+  .powered-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 1rem;
+  }
+  
+  .wa-logo {
+    color: #25D366 !important;
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .wa-logo:hover {
+    transform: scale(1.1);
+  }
+
+  /* Elemen Bunga */
+  .flower-deco {
+    position: fixed;
+    z-index: 1;
+    opacity: 0.06;
+    pointer-events: none;
+    font-size: 3.5rem;
+  }
+  .flower-tl { top: 8%; left: 4%; color: #2E5B2E; animation: floatGentle 8s ease-in-out infinite; }
+  .flower-tr { top: 12%; right: 6%; color: #2E5B2E; animation: floatGentle 9s ease-in-out infinite reverse; }
+  .flower-bl { bottom: 22%; left: 4%; color: #476636; animation: floatGentle 7s ease-in-out infinite; }
+  .flower-br { bottom: 18%; right: 6%; color: #6B8E4A; animation: floatGentle 8.5s ease-in-out infinite reverse; }
+
+  /* Quran Ayat dengan Terjemahan */
+  .quran-container {
+    background: rgba(46, 91, 46, 0.05);
+    border-left: 4px solid #2E5B2E;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+    text-align: center;
+  }
+  
+  .quran-arab {
+    font-size: 1.6rem;
+    color: #2E5B2E;
+    font-weight: 600;
+    font-family: 'Amiri', serif;
+    margin-bottom: 1rem;
+    direction: rtl;
+    text-align: right;
+    line-height: 2;
+  }
+  
+  .quran-terjemah {
+    font-size: 1.1rem;
+    color: #4a4a4a;
+    font-style: italic;
+    margin-bottom: 1rem;
+    font-weight: 400;
+  }
+  
+  .quran-sumber {
+    font-size: 0.95rem;
+    color: #2E5B2E;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+
+  /* Layout Resepsi Vertikal */
+  .resepsi-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .info-item {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .info-label {
+    font-weight: 600;
+    color: #2E5B2E;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.5px;
+  }
+  
+  .info-value {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 1rem;
+    border-radius: 12px;
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: #4a4a4a;
+    box-shadow: 0 5px 15px rgba(46, 91, 46, 0.1);
+  }
+
+  /* Rekening Section */
+  .rekening-section {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(46, 91, 46, 0.05);
+    border-radius: 16px;
+    border: 2px dashed rgba(46, 91, 46, 0.3);
+  }
+  
+  <!-- AKHIR SECTION RESEPSI -->
+</div>  <!-- powered-footer resepsi -->
+</div>  <!-- card resepsi -->
+</section>  <!-- id="resepsi" -->
+
+<!-- TAMBAHKAN DI SINI: section mempelai & lokasi -->
+<main> <!-- jangan ubah ini -->
+  
+  .rekening-title {
+    font-family: 'Cinzel', serif;
+    color: #2E5B2E;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+  }
+  
+  .rekening-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(46, 91, 46, 0.1);
+  }
+  
+  .rekening-item:last-child {
+    border-bottom: none;
+  }
+  
+  .rekening-label {
+    font-weight: 500;
+    color: #6B8E4A;
+  }
+  
+  .rekening-value {
+    font-weight: 600;
+    color: #2E5B2E;
+    font-size: 1rem;
+  }
+
+  .main-container {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+  }
+
+  /* Welcome, Header, Content, Card - SAMA seperti sebelumnya */
+  .welcome-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 2rem;
+    animation: fadeInUp 1.8s ease-out;
+  }
+  
+  .welcome-title {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: clamp(2.2rem, 7vw, 4rem);
+    margin-bottom: 2rem;
+    color: #2E5B2E;
+    letter-spacing: 0.1em;
+    line-height: 1.2;
+  }
+  
+  .welcome-btn {
+    background: linear-gradient(135deg, #2E5B2E 0%, #476636 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 1.2rem 3rem;
+    font-size: 1.15rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 12px 30px rgba(46, 91, 46, 0.4);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    letter-spacing: 0.5px;
+  }
+  .welcome-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(46, 91, 46, 0.6);
+  }
+
+  .header-section {
+    text-align: center;
+    padding: 3.5rem 2rem 2.5rem;
+    animation: fadeInUp 2s ease-out 0.3s both;
+  }
+  
+  .header-title {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: clamp(2.5rem, 8vw, 4.2rem);
+    color: #2E5B2E;
+    margin-bottom: 1rem;
+    letter-spacing: 0.05em;
+  }
+  
+  .header-subtitle {
+    font-weight: 400;
+    color: #6B8E4A;
+    font-size: 1.2rem;
+    letter-spacing: 0.03em;
+    font-style: italic;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .content-section {
+    padding: 0 2rem 2rem;
+    max-width: 850px;
+    margin: 0 auto;
+    animation: fadeInUp 2.2s ease-out 0.6s both;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(20px);
+    border-radius: 28px;
+    padding: 3rem 2.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 
+      0 25px 50px rgba(0,0,0,0.1),
+      0 10px 20px rgba(46, 91, 46, 0.15),
+      inset 0 1px 0 rgba(255,255,255,1);
+    border: 1px solid rgba(46, 91, 46, 0.15);
+    transition: all 0.4s ease;
+    text-align: center;
+  }
+
+  .card-title {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    font-size: 2.1rem;
+    margin-bottom: 1.8rem;
+    color: #2E5B2E;
+    letter-spacing: 0.04em;
+    position: relative;
+  }
+  
+  .card-title::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 4px;
+    background: linear-gradient(90deg, #2E5B2E, #476636);
+    border-radius: 2px;
+  }
+
+  .card-text, .card-text p {
+    font-weight: 400;
+    font-size: 1.15rem;
+    line-height: 1.85;
+    color: #4a4a4a;
+    margin-bottom: 1.5rem;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Photo Gallery */
+  .photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.2rem;
+    margin-top: 2rem;
+    justify-content: center;
+  }
+  
+  .photo-frame {
+    aspect-ratio: 1;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(46, 91, 46, 0.25);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+    border: 2px solid rgba(46, 91, 46, 0.1);
+  }
+  
+  .photo-frame:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 25px 50px rgba(46, 91, 46, 0.4);
+  }
+
+  /* Nav Bar */
+  .nav-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(229, 235, 214, 0.95);
+    backdrop-filter: blur(25px);
+    border-top: 1px solid rgba(46, 91, 46, 0.2);
+    padding: 0.6rem 0;
+    box-shadow: 0 -4px 20px rgba(46, 91, 46, 0.15);
+    z-index: 10;
+  }
+  
+  .nav-grid {
+    display: flex;
+    justify-content: space-around;
+    max-width: 380px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    cursor: pointer;
+    color: #2E5B2E;
+    font-weight: 500;
+    font-size: 0.8rem;
+    padding: 0.4rem;
+    transition: all 0.4s ease;
+  }
+  
+  .nav-item:hover {
+    color: #476636;
+    transform: scale(1.05);
+  }
+  
+  .nav-item.active {
+    color: #1a3a1a;
+  }
+  
+  .nav-icon {
+    font-size: 1.3rem;
+  }
+  
+  .nav-label {
+    opacity: 0;
+    max-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: all 0.4s ease;
+    font-size: 0.75rem;
+  }
+  
+  .nav-item.active .nav-label {
+    opacity: 1;
+    max-width: 5rem;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes floatGentle {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    33% { transform: translateY(-8px) rotate(2deg); }
+    66% { transform: translateY(-4px) rotate(-1deg); }
+  }
+
+  @media (max-width: 480px) {
+    body { padding-bottom: 85px; }
+    .content-section { padding: 0 1.5rem 1rem; }
+    .card { padding: 2.5rem 2rem; margin-bottom: 1.5rem; }
+  }
+.photo-gallery {
+  margin-top: 2rem;
+  padding: 1rem;                /* biar tidak mepet card */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.2rem;
+}
+
+.photo-gallery img {
+  width: 100%;
+  aspect-ratio: 3 / 4;          /* rasio foto 3x4 */
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(46,91,46,0.25);
+  border: 2px solid rgba(46,91,46,0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.photo-gallery img:hover {
+  transform: scale(1.03);
+}
+</style>
+</head>
+<body>
+
+<!-- Bunga Dekoratif -->
+<i class="fas fa-flower-rose flower-deco flower-tl"></i>
+<i class="fas fa-spa flower-deco flower-tr"></i>
+<i class="fas fa-seedling flower-deco flower-bl"></i>
+<i class="fas fa-leaf flower-deco flower-br"></i>
+
+<div class="main-container">
+  <section id="welcome" class="welcome-section">
+    <h1 class="welcome-title">Undangan Pernikahan<br>Ahmad & Siti</h1>
+    <button class="welcome-btn" onclick="openInvitation()">
+      <i class="fas fa-heart" style="margin-right: 0.6rem;"></i>
+      Buka Undangan
+    </button>
+    <div class="powered-footer">
+      <a href="https://lptech.id" target="_blank" rel="noopener">
+        <i class="fas fa-crown" style="margin-right: 0.3rem;"></i>
+        Powered by lp_tech
+      </a>
+      <span class="powered-wa">
+        <a href="https://wa.me/6287870805424?text=Undangan+digital+lp_tech" target="_blank" rel="noopener" class="wa-logo">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </span>
+    </div>
+  </section>
+
+  <header class="header-section" style="display: none;">
+    <h1 class="header-title">Ahmad & Siti</h1>
+    <p class="header-subtitle">Dengan rahmat Tuhan Yang Maha Esa, kami dengan penuh rasa syukur mengundang kehadiran Bapak/Ibu/Saudara/i</p>
+  </header>
+
+  <main class="content-section" style="display: none;">
+    <section id="home" style="display: block;">
+      <div class="card">
+        <h2 class="card-title">Selamat Datang</h2>
+        <p class="card-text">Assalamu'alaikum Warahmatullahi Wabarakatuh.</p>
+        <p class="card-text">Kami mengucapkan terima kasih yang sebesar-besarnya atas perhatian dan doa restu Bapak/Ibu/Saudara/i yang telah meluangkan waktu untuk hadir dalam hari bahagia kami.</p>
+        
+        <div class="quran-container">
+          <div class="quran-arab">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا</div>
+          <div class="quran-terjemah">"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya."</div>
+          <div class="quran-sumber">QS. Ar-Rum Ayat 21</div>
+        </div>
+      </div>
+      <div class="powered-footer">
+        <a href="https://lptech.id" target="_blank" rel="noopener">
+          <i class="fas fa-crown" style="margin-right: 0.3rem;"></i>
+          Powered by lp_tech
+        </a>
+        <span class="powered-wa">
+          <a href="https://wa.me/6287870805424?text=Undangan+digital+lp_tech" target="_blank" rel="noopener" class="wa-logo">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </span>
+      </div>
+    </section>
+    
+    <!-- Lainnya sama... -->
+    
+    <section id="resepsi" style="display: none;">
+      <div class="card">
+        <h2 class="card-title">Jadwal Resepsi</h2>
+        
+        <div class="resepsi-info">
+          <div class="info-item">
+            <div class="info-label">Hari / Tanggal</div>
+            <div class="info-value">Minggu, 25 Desember 2025</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Waktu</div>
+            <div class="info-value">10:00 - 14:00 WIB</div>
+          </div>
+          <div class="info-item">
+            <div class="info-label">Tempat</div>
+            <div class="info-value">Gedung Serba Guna Sakura<br>Jl. Sakura Raya No. 123<br>Jakarta Selatan</div>
+          </div>
+        </div>
+
+        <div class="rekening-section">
+          <div class="rekening-title">Penerima Tamu</div>
+          <div class="rekening-item">
+            <span class="rekening-label">Bank BCA</span>
+            <span class="rekening-value">Ahmad Rizki</span>
+          </div>
+          <div class="rekening-item">
+            <span class="rekening-label">No. Rekening</span>
+            <span class="rekening-value">1234567890</span>
+          </div>
+          <div class="rekening-item">
+            <span class="rekening-label">DANA</span>
+            <span class="rekening-value">0857-7080-5424</span>
+          </div>
+          <div class="rekening-item">
+            <span class="rekening-label">OVO</span>
+            <span class="rekening-value">0878-7080-5424</span>
+          </div>
+        </div>
+      </div>
+      <div class="powered-footer">
+        <a href="https://lptech.id" target="_blank" rel="noopener">
+          <i class="fas fa-crown" style="margin-right: 0.3rem;"></i>
+          Powered by lp_tech
+        </a>
+        <span class="powered-wa">
+          <a href="https://wa.me/6287870805424?text=Undangan+digital+lp_tech" target="_blank" rel="noopener" class="wa-logo">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </span>
+      </div>
+    </section>
+    
+<section id="mempelai" style="display: none;">
+  <div class="card">
+    <h2 class="card-title">Mempelai</h2>
+    
+    <div class="resepsi-info">
+      <div class="info-item">
+        <div class="info-label">Mempelai Putra</div>
+        <div class="info-value">
+          Ahmad Rizki<br>
+          <small style="color: #6B8E4A; font-weight: 400;">Putra ke-1 Bapak Ahmad & Ibu Fatimah</small>
+        </div>
+      </div>
+      <div class="info-item">
+        <div class="info-label">Mempelai Putri</div>
+        <div class="info-value">
+          Siti Nurhaliza<br>
+          <small style="color: #6B8E4A; font-weight: 400;">Putri ke-2 Bapak Hasan & Ibu Siti Aminah</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOTO 150x150px PASTI PAS -->
+<div class="photo-gallery">
+  <img src="https://i.imgur.com/ls7GGCB.jpg" alt="Ahmad Rizki">
+  <img src="https://i.imgur.com/DWkyRpz.jpg" alt="Siti Nurhaliza">
+</div>
+
+    <div class="powered-footer">
+      <a href="https://lptech.id" target="_blank" rel="noopener">
+        <i class="fas fa-crown" style="margin-right: 0.3rem;"></i>Powered by lptech
+      </a>
+      <span class="powered-wa">
+        <a href="https://wa.me/6287870805424?text=Undangandigitallptech" target="_blank" rel="noopener" class="wa-logo">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- LOKASI -->
+<section id="lokasi" style="display: none;">
+  <div class="card">
+    <h2 class="card-title">Lokasi Resepsi</h2>
+    <div class="resepsi-info">
+      <div class="info-item">
+        <div class="info-label">Alamat Lengkap</div>
+        <div class="info-value">Gedung Serba Guna Sakura<br>Jl. Sakura Raya No. 123<br>Jakarta Selatan</div>
+      </div>
+    </div>
+    <iframe src="https://goo.gl/maps/vpHuXFzZ8PStiZK48" width="100%" height="300" style="border-radius:12px;margin-top:1rem;"></iframe>
+    <a href="https://goo.gl/maps/vpHuXFzZ8PStiZK48"
+   target="_blank"
+   style="
+     display: inline-block;
+     margin-top: 1.2rem;
+     padding: 0.9rem 1.8rem;
+     background: linear-gradient(135deg, #2E5B2E, #476636);
+     color: #fff;
+     border-radius: 30px;
+     font-weight: 500;
+     text-decoration: none;
+     box-shadow: 0 10px 25px rgba(46,91,46,0.4);
+   ">
+  <i class="fas fa-map-marked-alt" style="margin-right: 0.5rem;"></i>
+  Buka di Google Maps
+</a>
+    <div class="powered-footer">...</div>
+    <div class="powered-footer">
+  <a href="https://lptech.id" target="_blank" rel="noopener">
+    <i class="fas fa-crown" style="margin-right: 0.3rem"></i>Powered by lptech
+  </a>
+  <span class="powered-wa">
+    <a href="https://wa.me/6287870805424?text=Undangandigitallptech" target="_blank" rel="noopener" class="wa-logo">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </span>
+</div>
+  </div>
+</section>
+    
+  </main>
+
+  <nav class="nav-bar" style="display: none;">
+  <div class="nav-grid">
+    <div class="nav-item active" data-target="home">
+      <i class="fas fa-home nav-icon"></i>
+      <span class="nav-label">Home</span>
+    </div>
+    <div class="nav-item" data-target="mempelai">
+      <i class="fas fa-ring nav-icon"></i>
+      <span class="nav-label">Mempelai</span>
+    </div>
+    <div class="nav-item" data-target="resepsi">
+      <i class="fas fa-calendar-alt nav-icon"></i>
+      <span class="nav-label">Resepsi</span>
+    </div>
+    <div class="nav-item" data-target="lokasi">
+      <i class="fas fa-map-marker-alt nav-icon"></i>
+      <span class="nav-label">Lokasi</span>
+    </div>
+  </div>
+</nav>
+</div>
+
+<script>
+function openInvitation() {
+  document.getElementById('welcome').style.display = 'none';
+  document.querySelector('.header-section').style.display = 'block';
+  document.querySelector('.content-section').style.display = 'block';
+  document.querySelector('.nav-bar').style.display = 'block';
+}
+
+
+function switchTab(event) {
+  const targetId = event.currentTarget.getAttribute('data-target');
+
+  // Sembunyikan semua section
+  document.querySelectorAll('main section').forEach(section => {
+    section.style.display = 'none';
+  });
+
+  // Tampilkan section target
+  const targetSection = document.getElementById(targetId);
+  if (targetSection) {
+    targetSection.style.display = 'block';
+  }
+
+  // Atur kelas aktif di navbar
+  document.querySelectorAll('.nav-item').forEach(item => {
+    item.classList.remove('active');
+  });
+
+  event.currentTarget.classList.add('active');
+}
+
+<!-- 🎵 BACKSOUND -->
+<audio id="backgroundMusic" loop preload="auto">
+  <source src="https://www.dropbox.com/scl/fi/q1snby3pzltm9vj9n0ydp/ANDMESH-ANUGERAH-TERINDAH-OFFICIAL-MUSIC-VIDEO.mp3?rlkey=8mb3bi5s3xlk4ttrbia8jj50g&st=8p5qgxnu&dl=1" type="audio/mpeg">
+</audio>
+
+<script>
+let musicPlayed = false;
+const bgMusic = document.getElementById('backgroundMusic');
+
+function playMusic() {
+  if (!musicPlayed) {
+    bgMusic.volume = 0.3;
+    bgMusic.play().then(() => {
+      musicPlayed = true;
+      console.log("🎵 Musik jalan");
+    }).catch(err => console.log("Auto-play dicegah:", err));
+  }
+}
+
+// Play saat klik "Buka Undangan"
+document.querySelector('.welcome-btn').addEventListener('click', function() {
+  setTimeout(playMusic, 300);
+});
+
+// Backup: play saat klik pertama di mana saja
+document.addEventListener('click', playMusic, { once: true });
+</script>
+</script>
+
+<!-- 🎵 ANDMESH ANUGERAH TERINDAH - AUTO PLAY -->
+<audio id="backgroundMusic" loop preload="auto">
+  <source src="https://www.dropbox.com/scl/fi/q1snby3pzltm9vj9n0ydp/ANDMESH-ANUGERAH-TERINDAH-OFFICIAL-MUSIC-VIDEO.mp3?rlkey=8mb3bi5s3xlk4ttrbia8jj50g&st=8p5qgxnu&dl=1" type="audio/mpeg">
+</audio>
+
+<script>
+const btn = document.querySelector('.welcome-btn');
+const welcome = document.getElementById('welcome');
+const header = document.querySelector('.header-section');
+const content = document.querySelector('.content-section');
+const nav = document.querySelector('.nav-bar');
+const bgMusic = document.getElementById('backgroundMusic');
+
+let played = false;
+
+function openInvitation() {
+  welcome.style.display = 'none';
+  header.style.display = 'block';
+  content.style.display = 'block';
+  nav.style.display = 'block';
+}
+
+function playMusic() {
+  if (!played) {
+    bgMusic.volume = 0.3;
+    bgMusic.play().catch(() => {});
+    played = true;
+  }
+}
+
+// klik tombol buka
+btn.addEventListener('click', function() {
+  openInvitation();
+  playMusic();
+});
+
+// backup klik layar
+document.addEventListener('click', playMusic, { once: true });
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const navItems = document.querySelectorAll(".nav-item");
+  const sections = document.querySelectorAll("main section");
+
+  function showSection(id) {
+    sections.forEach(section => {
+      section.style.display = (section.id === id) ? "block" : "none";
+    });
+
+    navItems.forEach(item => item.classList.remove("active"));
+    navItems.forEach(item => {
+      if (item.dataset.target === id) {
+        item.classList.add("active");
+      }
+    });
+  }
+
+  navItems.forEach(item => {
+    item.addEventListener("click", function () {
+      const target = this.dataset.target;
+      showSection(target);
+    });
+  });
+
+  // default buka home
+  showSection("home");
+});
+</script>
+</body>
+</html>
