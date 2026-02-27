@@ -1,13 +1,8 @@
 (function(){
-    // ==========================================
-    // PENGATURAN KEAMANAN DOMAIN LOCK
-    // ==========================================
-    // Isi array di bawah ini dengan domain yang diizinkan.
-    // Saya sudah menambahkan domain Netlify Anda + localhost untuk testing.
+    
     var _allowedDomains = [
         'lptech-wedding-tb1.netlify.app', 
         'www.lptech-wedding-tb1.netlify.app',
-        'localhost' // Hapus baris ini saat sudah benar-benar online jika mau
     ]; 
     
     var _currentDomain = window.location.hostname;
