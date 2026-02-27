@@ -1,4 +1,31 @@
 (function(){
+    // ==========================================
+    // PENGATURAN KEAMANAN DOMAIN LOCK
+    // ==========================================
+    // Isi array di bawah ini dengan domain yang diizinkan.
+    // Saya sudah menambahkan domain Netlify Anda + localhost untuk testing.
+    var _allowedDomains = [
+        'lptech-wedding-tb1.netlify.app', 
+        'www.lptech-wedding-tb1.netlify.app',
+        'localhost' // Hapus baris ini saat sudah benar-benar online jika mau
+    ]; 
+    
+    var _currentDomain = window.location.hostname;
+
+    // Cek apakah domain saat ini ada di daftar yang diizinkan
+    if (_allowedDomains.indexOf(_currentDomain) === -1) {
+        // Jika tidak diizinkan, hentikan semua script dan tampilkan pesan error
+        document.body.innerHTML = `
+            <div style="text-align:center;padding:50px;font-family:sans-serif;background:#f8d7da;color:#721c24;height:100vh;display:flex;flex-direction:column;justify-content:center;">
+                <h1>🚫 Akses Ditolak</h1>
+                <p>Halaman ini tidak dapat diakses dari domain ini.</p>
+                <p><small>Konten dilindungi oleh LP Tech.</small></p>
+            </div>
+        `;
+        return; // Hentikan eksekusi script selanjutnya
+    }
+    // ==========================================
+
     var _0xd=document,_0xw=window;
     var _0$id=function(x){return _0xd.getElementById(x)};
     var _0$cl=function(x){return _0xd.querySelector(x)};
@@ -70,7 +97,7 @@
         });
     };
 
-    // Keamanan
+    // Keamanan Tambahan (Blokir Klik Kanan & Shortcut)
     _0xd.addEventListener('contextmenu',function(e){e.preventDefault()});
     _0xd.addEventListener('keydown',function(e){
         if(e.key==='F12' || (e.ctrlKey && e.shiftKey && e.key==='I') || (e.ctrlKey && e.key==='u')){
