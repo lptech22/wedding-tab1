@@ -1,0 +1,12 @@
+tambahan code html 
+<h1 class="_wt">Undangan Pernikahan<br>Ahmad & Laily</h1>
+<div style="margin: 2rem 0;"><p style="font-size: 0.9rem; letter-spacing: 0.15em; opacity: 0.8; margin-bottom: 0.5rem;">Kepada Yth.<br>Bapak/Ibu/Saudara/i</p><h2 id="_nm" style="font-family: var(--f1); font-size: 1.4rem; color: var(--w1); font-weight: 600;">Tamu Undangan</h2></div>
+
+
+tambahan script setelah kunci domain
+/* --- LOGICA NAMA TAMU & SCROLL --- */
+var _urlParams=new URLSearchParams(_0xw.location.search);var _rawName=_urlParams.get('to');
+// Fungsi Format Nama (Kapital awal, kecuali gelar)
+function _fmtName(str){if(!str)return"";var _exc=['kh','hj','h','dr','drs','ir','s.h','m.h','s.e','s.t','s.pd','m.pd'];var _w=str.toLowerCase().split(' ');return _w.map(function(w){var _c=w.replace(/\./g,'');if(_exc.includes(_c)){return _c.toUpperCase()+'.'}return w.charAt(0).toUpperCase()+w.slice(1)}).join(' ')}
+// Terapkan Nama
+if(_rawName){var _nEl=_0$id('_nm');if(_nEl){_nEl.innerText=_fmtName(decodeURIComponent(_rawName))}}
